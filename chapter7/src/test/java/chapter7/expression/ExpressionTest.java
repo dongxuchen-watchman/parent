@@ -1,10 +1,8 @@
 package chapter7.expression;
 
-import org.activiti.engine.IdentityService;
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.RepositoryService;
-import org.activiti.engine.RuntimeService;
+import org.activiti.engine.*;
 import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.task.Task;
 import org.activiti.engine.test.Deployment;
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,6 +30,8 @@ public class ExpressionTest {
     IdentityService identityService;
     @Autowired
     RuntimeService runtimeService;
+    @Autowired
+    TaskService taskService;
 
     @Test
     public void testExpression(){
@@ -41,15 +41,26 @@ public class ExpressionTest {
         String name = "chen1";
         variables.put("name", name);
 
-        System.out.println(repositoryService.createProcessDefinitionQuery().count());
+        System.out.println(repositoryService.createProcessDefinitionQuery().list());
         System.out.println(repositoryService.createDeploymentQuery().list());
 
         //运行期表达式
         identityService.setAuthenticatedUserId("chendongxu");
         String businesskey = "9999";
-        ProcessInstance processInstance = runtimeService.startProcessInstanceById("expression", businesskey, variables);
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("expression", businesskey, variables);
         System.out.println(processInstance.getId());
         Assert.assertEquals("chendongxu", runtimeService.getVariable(processInstance.getId(), "authenticatedUserIdForTest"));
+
+        Assert.assertEquals("chen1, add by print(String name)", runtimeService.getVariable(processInstance.getId(), "returnValue"));
+
+        Assert.assertEquals(businesskey, runtimeService.getVariable(processInstance.getId(), "businessKey"));
+
+        Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
+
+        String setByTask = (String)taskService.getVariable(task.getId(), "setByTask");
+        Assert.assertEquals("I am setted by DelegateTask, " + name, setByTask);
+
+
 
 
 

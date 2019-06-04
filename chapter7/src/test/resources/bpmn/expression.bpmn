@@ -55,35 +55,35 @@
           <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13" sourceElement="_9" targetElement="_12">
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13" sourceElement="usertask1" targetElement="_12">
         <omgdi:waypoint x="130.0" y="207.5"/>
         <omgdi:waypoint x="67.0" y="211.0"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6" sourceElement="_2" targetElement="_5">
+      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6" sourceElement="_2" targetElement="getAuthenticatedUserId">
         <omgdi:waypoint x="72.0" y="81.0"/>
         <omgdi:waypoint x="135.0" y="92.5"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="_5" targetElement="_3">
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="getAuthenticatedUserId" targetElement="execExpression">
         <omgdi:waypoint x="220.0" y="92.5"/>
         <omgdi:waypoint x="315.0" y="97.5"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="_8" targetElement="_9">
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="executionExample" targetElement="usertask1">
         <omgdi:waypoint x="310.0" y="212.5"/>
         <omgdi:waypoint x="215.0" y="207.5"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="_3" targetElement="_8">
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="execExpression" targetElement="executionExample">
         <omgdi:waypoint x="355.0" y="125.0"/>
         <omgdi:waypoint x="355.0" y="185.0"/>
         <bpmndi:BPMNLabel>

@@ -48,7 +48,12 @@
         <version>${spring.version}</version>
         <scope>test</scope>
         </dependency>
-
+        <!-- postgres驱动包-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1208.jre7</version>
+        </dependency>
     </dependencies>
 
     <build>
