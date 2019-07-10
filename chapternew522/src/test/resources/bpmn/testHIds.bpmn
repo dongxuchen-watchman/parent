@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://activiti.org/test">
+  <process id="testUploadAfterDatabaseExport" name="测试" isExecutable="true">
+    <startEvent id="sid-6A990071-4BED-453E-B842-EC1C898A674C" name="start">
+      <extensionElements>
+        <activiti:executionListener event="start" delegateExpression="${saveEventMapListener}"></activiti:executionListener>
+      </extensionElements>
+    </startEvent>
+    <serviceTask id="sid-CC492303-1874-4565-80A7-7B9B33A8A768" name="check if upload after data export" activiti:delegateExpression="${hidstask}">
+      <extensionElements>
+        <activiti:field name="sqldata">
+          <activiti:string><![CDATA[eyJ0YWJsZSI6InN5bmNfaGlkc19hZ2VudF9hY2NvdW50IiwiZmllbGRfbGlzdCI6Ilt7XCJvcGVyYXRvclwiOiBcImFuZFwiLCBcImZpZWxkXCI6IFwiYWNjb3VudFwiLCBcImZpZWxkX29wZXJhdG9yXCI6IFwi562J5LqOXCIsIFwidmFsdWVcIjogXCIke2FjY291bnR9XCIsIFwiJCRoYXNoS2V5XCI6IFwiMDdIXCJ9XSIsImxpbWl0IjoxfQ==]]></activiti:string>
+        </activiti:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-D18A400F-06EB-440A-9C98-46B6C1F44A09" name="test" sourceRef="sid-6A990071-4BED-453E-B842-EC1C898A674C" targetRef="sid-CC492303-1874-4565-80A7-7B9B33A8A768"></sequenceFlow>
+    <endEvent id="sid-375EAE67-DABF-4796-8BDD-8296ADA1285F" name="end">
+      <extensionElements>
+        <activiti:executionListener event="end" delegateExpression="${processResultListener}"></activiti:executionListener>
+      </extensionElements>
+    </endEvent>
+     <sequenceFlow id="sid-D18A400F-06EB-440A-9C98-46B6C1F44A10" name="test" sourceRef="sid-CC492303-1874-4565-80A7-7B9B33A8A768"" targetRef="sid-375EAE67-DABF-4796-8BDD-8296ADA1285F"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_testUploadAfterDatabaseExport">
+    <bpmndi:BPMNPlane bpmnElement="testUploadAfterDatabaseExport" id="BPMNPlane_testUploadAfterDatabaseExport">
+      <bpmndi:BPMNShape bpmnElement="sid-6A990071-4BED-453E-B842-EC1C898A674C" id="BPMNShape_sid-6A990071-4BED-453E-B842-EC1C898A674C">
+        <omgdc:Bounds height="30.0" width="30.0" x="120.0" y="90.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-CC492303-1874-4565-80A7-7B9B33A8A768" id="BPMNShape_sid-CC492303-1874-4565-80A7-7B9B33A8A768">
+        <omgdc:Bounds height="80.27944500000001" width="100.0" x="270.0" y="64.860275"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-375EAE67-DABF-4796-8BDD-8296ADA1285F" id="BPMNShape_sid-375EAE67-DABF-4796-8BDD-8296ADA1285F">
+        <omgdc:Bounds height="28.0" width="28.0" x="882.625" y="91.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-D18A400F-06EB-440A-9C98-46B6C1F44A09" id="BPMNEdge_sid-D18A400F-06EB-440A-9C98-46B6C1F44A09">
+        <omgdi:waypoint x="150.0" y="105.00000056756757"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="105.00000510810811"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+	   <bpmndi:BPMNEdge bpmnElement="sid-D18A400F-06EB-440A-9C98-46B6C1F44A10" id="BPMNEdge_sid-D18A400F-06EB-440A-9C98-46B6C1F44A10">
+        <omgdi:waypoint x="150.0" y="105.00000056756757"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="105.00000510810811"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      
+      
+    
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
